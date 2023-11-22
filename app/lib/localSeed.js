@@ -1,3 +1,4 @@
+import React from "react";
 import pg from "pg";
 
 const db = new pg.Client ( {
@@ -8,14 +9,24 @@ const db = new pg.Client ( {
   port: 5432,
 })
 
-function seedDbase() {
+export default async function seedDbase() {
+  console.log("THIS IS FROM seedDbase YYYYYYYYYYYYYYYYYYY");
   db.connect();
-  //const result = db.query("DROP TABLE IF EXISTS users");
- const result2 = db.query("CREATE TABLE users(id INT PRIMARY KEY")
-}
-export default seedDbase();
 
-{/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  console.log("THIS IS FROM seedDbase ZZZZZZZZZZZZZZZZZZZZZZZZZZ");
+  try {  
+    const result = db.query("DROP TABLE IF EXISTS users");
+    const result2 = await db.query("CREATE TABLE users(id INT PRIMARY KEY)")
+  } catch (error) {
+    console.error('Error seeding users:', error);
+    throw error;
+  }
+}
+
+
+
+
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 const { db } = require('@vercel/postgres');
 const {
   invoices,
@@ -195,4 +206,4 @@ main().catch((err) => {
     err,
   );
 });
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   */}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   */
