@@ -16,7 +16,7 @@ export default async function seedDbase() {
   console.log("THIS IS FROM seedDbase ZZZZZZZZZZZZZZZZZZZZZZZZZZ");
   try {  
     const result = db.query("DROP TABLE IF EXISTS users");
-    const result2 = await db.query("CREATE TABLE users(id INT PRIMARY KEY)")
+    const result2 = await db.query("CREATE TABLE users(id BIGINT PRIMARY KEY, name VARCHAR[50], email VARCHAR[50], password VARCHAR[50])")
   } catch (error) {
     console.error('Error seeding users:', error);
     throw error;
