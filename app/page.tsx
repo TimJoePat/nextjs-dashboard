@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image'
+import seedDbase from '@/app/lib/localSeed';
 
 export default function Page() {
   return (
@@ -20,6 +21,7 @@ export default function Page() {
               Next.js Learn Course
             </a>
             , brought to you by Vercel.
+            <script>seedDbase();</script>
           </p>
           <Link
             href="/login"
