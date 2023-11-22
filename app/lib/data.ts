@@ -1,4 +1,7 @@
-import { sql } from '@vercel/postgres';
+//import { sql } from '@vercel/postgres';
+import pg from "pg";
+
+
 import {
   CustomerField,
   CustomersTable,
@@ -11,6 +14,10 @@ import {
 import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
+  
+ { /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX} 
+  
+  
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
@@ -228,4 +235,7 @@ export async function getUser(email: string) {
     console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
   }
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  */ }
+
 }
