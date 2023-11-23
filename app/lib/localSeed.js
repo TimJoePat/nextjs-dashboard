@@ -11,17 +11,27 @@ const db = new pg.Client ( {
 
 export default async function seedDbase() {
   console.log("THIS IS FROM seedDbase YYYYYYYYYYYYYYYYYYY");
+  
   db.connect();
-
+  
   console.log("THIS IS FROM seedDbase ZZZZZZZZZZZZZZZZZZZZZZZZZZ");
   try {  
-    const result = db.query("DROP TABLE IF EXISTS users");
-    const result2 = await db.query("CREATE TABLE users(id BIGINT PRIMARY KEY, name VARCHAR[50], email VARCHAR[50], password VARCHAR[50])")
+   // const result = db.query("DROP TABLE IF EXISTS users");
+   // const result2 = await db.query("CREATE TABLE users(id BIGINT PRIMARY KEY, name VARCHAR[50], email VARCHAR[50], password VARCHAR[50])")
   } catch (error) {
-    console.error('Error seeding users:', error);
+    console.error('Error Creating users TABLE:', error);
+    throw error;
+  }
+  try { 
+    const result4 = await db.query("INSERT INTO usersone ( pid, myname, myemail, mypasswd )VALUES(2, 'four', 'five', 'six')"); 
+   // const result5 = await db.query("INSERT INTO users(id, name, email, password) VALUES( 1, 'TWO', 'THREE', 'FOUR')");
+  } catch (error) {
+    console.error('Error INSERTING INTO users TABLE', error);
     throw error;
   }
 }
+
+
 
 
 
